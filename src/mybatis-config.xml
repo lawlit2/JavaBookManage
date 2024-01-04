@@ -3,15 +3,22 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <typeAliases>
+        <package name="dao"/>
+    </typeAliases>
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
-                <property name="driver" value="${驱动类（含包名）}"/>
-                <property name="url" value="${数据库连接URL}"/>
-                <property name="username" value="${用户名}"/>
-                <property name="password" value="${密码}"/>
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://192.168.30.128:3306/bookmanage"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
             </dataSource>
         </environment>
+
     </environments>
+    <mappers>
+        <mapper resource="entitle/Mapper.xml"/>
+    </mappers>
 </configuration>
